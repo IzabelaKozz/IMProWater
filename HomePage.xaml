@@ -1,0 +1,60 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMProWater.HomePage"
+             BackgroundColor="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Zmieniamy ostatni wiersz na Auto, aby przyciski były na dole -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Tło -->
+        <Image Source="tlo.jpg" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" />
+
+        <!-- Logo i tytuł aplikacji, umieszczone w środku górnej części -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" Spacing="10" Margin="0, 20, 0, 40" Grid.Row="0" Grid.Column="1">
+            <Image Source="logo.jpg" WidthRequest="100" HeightRequest="100"/>
+            <Label Text="IMProWater" FontSize="40" VerticalOptions="Center" TextColor="Black"/>
+        </StackLayout>
+
+        <!-- Przycisk "Sekcje" w środku ekranu -->
+        <Button Text="Sekcje" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0, 0, 0, 20" Grid.Row="1" Grid.Column="1" HeightRequest="150" WidthRequest="300" Clicked="OnSectionsButtonClicked"/>
+
+        <!-- Przycisk wylogowania po lewej stronie, na dole -->
+        <Button Text="Wyloguj" 
+                Grid.Row="2" 
+                Grid.Column="0" 
+                VerticalOptions="End" 
+                HorizontalOptions="Start" 
+                Margin="10"
+                Clicked="OnLogoutButtonClicked" />
+
+        <!-- Przycisk wyjścia po prawej stronie, na dole -->
+        <Button Text="Wyjście" 
+                Grid.Row="2" 
+                Grid.Column="2" 
+                VerticalOptions="End" 
+                HorizontalOptions="End" 
+                Margin="10"
+                Clicked="OnExitButtonClicked" />
+
+        <!-- Ustawienia i Status, symetryczne przyciski na dole, środkowa kolumna -->
+        <Grid Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="End" Margin="0, 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Ustawienia" FontSize="20" Grid.Column="0" HeightRequest="150" WidthRequest="150" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0" Clicked="OnSettingsButtonClicked"/>
+            <Button Text="Status" FontSize="20" Grid.Column="1" HeightRequest="150" WidthRequest="150" HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0" Clicked="OnStatusButtonClicked"/>
+        </Grid>
+    </Grid>
+
+</ContentPage>

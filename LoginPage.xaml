@@ -1,0 +1,65 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMProWater.LoginPage"
+             BackgroundColor="White">
+
+    <Grid>
+        <!-- Ustawienie tła z przesunięciem -->
+        <Image Source="tlo1.jpg" Aspect="AspectFit" VerticalOptions="Start" Margin="0,-100,0,0" />
+
+        <!-- Półprzezroczysta ramka -->
+        <Frame BackgroundColor="WhiteSmoke" Opacity="0.8" CornerRadius="25" Padding="20" HasShadow="False" BorderColor="Transparent"
+               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" WidthRequest="450" HeightRequest="550">
+
+            <!-- Układ wewnątrz ramki -->
+            <StackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+
+                <!-- Pole na Email -->
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0, 0, 0, 10" HasShadow="False">
+                    <Entry x:Name="EmailEntry" Placeholder="email" Keyboard="Email"
+                           TextColor="Black"
+                           PlaceholderColor="Grey"
+                           BackgroundColor="Transparent"
+                           WidthRequest="350"  HeightRequest="60" HorizontalOptions="Center"/>
+                </Frame>
+
+                <!-- Pole na Hasło -->
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0, 0, 0, 20" HasShadow="False">
+                    <Grid>
+                        <Entry x:Name="PasswordEntry" Placeholder="hasło" IsPassword="True"
+                               TextColor="Black"
+                               PlaceholderColor="Grey" 
+                               BackgroundColor="Transparent"
+                               WidthRequest="350"  HeightRequest="60" HorizontalOptions="Center"/>
+                        <!-- Przycisk z ikoną oka -->
+                        <ImageButton Source="eye.png" WidthRequest="30" HeightRequest="30" Aspect="AspectFit"
+                                     HorizontalOptions="End" VerticalOptions="Center" Margin="5,0"
+                                     Clicked="OnTogglePasswordVisibilityClicked"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Guziki Powrót i Zaloguj -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                    <Button Text="Powrót"
+                            BackgroundColor="#5A7F66" TextColor="White"
+                            CornerRadius="30" WidthRequest="150" HeightRequest="60"
+                            Clicked="OnBackButtonClicked" />
+
+                    <Button Text="Zaloguj"
+                            BackgroundColor="#5A7F66" TextColor="White"
+                            CornerRadius="30" WidthRequest="150" HeightRequest="60"
+                            Clicked="OnLoginButtonClicked" />
+                </StackLayout>
+
+                <!-- Przycisk Wyjście umieszczony na dole ramki -->
+                <Button Text="Wyjście"
+                        BackgroundColor="#5A7F66" TextColor="White"
+                        CornerRadius="30" WidthRequest="150" HeightRequest="60"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Clicked="OnExitButtonClicked"/>
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>

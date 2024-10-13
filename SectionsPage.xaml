@@ -1,0 +1,40 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMProWater.SectionsPage"
+             Title="Sekcje"
+             BackgroundColor="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header with back arrow, title, and home icon -->
+        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10" Grid.Row="0" BackgroundColor="LightGray">
+            <Button Text="←" FontSize="20" Clicked="OnBackButtonClicked" VerticalOptions="Center"/>
+            <Label Text="Sekcje 1-6" FontSize="24" VerticalOptions="Center"/>
+            <ImageButton Source="home.png" WidthRequest="24" HeightRequest="24" Clicked="OnHomeButtonClicked" VerticalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Section buttons -->
+        <Grid Grid.Row="1" Padding="20" ColumnSpacing="10" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Sekcja 1" Grid.Row="0" Grid.Column="0" Clicked="OnSectionButtonClicked"/>
+            <Button Text="Sekcja 2" Grid.Row="0" Grid.Column="1" Clicked="OnSectionButtonClicked"/>
+            <Button Text="Sekcja 3" Grid.Row="0" Grid.Column="2" Clicked="OnSectionButtonClicked"/>
+            <Button Text="Sekcja 4" Grid.Row="1" Grid.Column="0" Clicked="OnSectionButtonClicked"/>
+            <Button Text="Sekcja 5" Grid.Row="1" Grid.Column="1" Clicked="OnSectionButtonClicked"/>
+            <Button Text="Sekcja 6" Grid.Row="1" Grid.Column="2" Clicked="OnSectionButtonClicked"/>
+        </Grid>
+    </Grid>
+</ContentPage>

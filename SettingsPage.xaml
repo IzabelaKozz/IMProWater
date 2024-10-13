@@ -1,0 +1,26 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMProWater.SettingsPage"
+             Title="Zmiana Ustawień"
+             BackgroundColor="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header with back arrow, title, and home icon -->
+        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10" Grid.Row="0" BackgroundColor="LightGray">
+            <Button Text="←" FontSize="20" Clicked="OnBackButtonClicked" VerticalOptions="Center"/>
+            <Label Text="Zmiana Ustawień" FontSize="24" VerticalOptions="Center"/>
+            <ImageButton Source="home.png" WidthRequest="24" HeightRequest="24" Clicked="OnHomeButtonClicked" VerticalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout Padding="20" Spacing="10" Grid.Row="1">
+            <Button Text="WiFi" Clicked="OnWiFiButtonClicked"/>
+            <Button Text="Programy" Clicked="OnProgramsButtonClicked"/>
+            <Button Text="Ustawienia" Clicked="OnSettingsButtonClicked"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

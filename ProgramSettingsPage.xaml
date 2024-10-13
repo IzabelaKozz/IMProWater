@@ -1,0 +1,41 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMProWater.ProgramSettingsPage"
+             Title="{Binding SectionTitle}"
+             BackgroundColor="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header with back arrow, title, and home icon -->
+        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10" Grid.Row="0" BackgroundColor="LightGray">
+            <Button Text="←" FontSize="20" Clicked="OnBackButtonClicked" VerticalOptions="Center"/>
+            <Label Text="{Binding SectionTitle}" FontSize="24" VerticalOptions="Center"/>
+            <ImageButton Source="home.png" WidthRequest="24" HeightRequest="24" Clicked="OnHomeButtonClicked" VerticalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout Padding="20" Spacing="10" Grid.Row="1">
+            <Label Text="Dni tygodnia" FontSize="16"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                <Button Text="pn" Clicked="OnDayButtonClicked"/>
+                <Button Text="wt" Clicked="OnDayButtonClicked"/>
+                <Button Text="śr" Clicked="OnDayButtonClicked"/>
+                <Button Text="czw" Clicked="OnDayButtonClicked"/>
+                <Button Text="pt" Clicked="OnDayButtonClicked"/>
+                <Button Text="so" Clicked="OnDayButtonClicked"/>
+                <Button Text="nd" Clicked="OnDayButtonClicked"/>
+            </StackLayout>
+            <Label Text="Godzina startu" FontSize="16"/>
+            <Entry x:Name="StartTimeEntry" Keyboard="Numeric" Placeholder="Wpisz godzinę startu" FontSize="24"/>
+            <Label Text="Czas trwania (minuty)" FontSize="16"/>
+            <Entry x:Name="DurationEntry" Keyboard="Numeric" Placeholder="Wpisz czas trwania" FontSize="24"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                <Button Text="OK" Clicked="OnOkButtonClicked"/>
+                <Button Text="Anuluj" Clicked="OnCancelButtonClicked"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

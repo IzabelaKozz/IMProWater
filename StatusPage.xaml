@@ -1,0 +1,36 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMProWater.StatusPage"
+             Title="Status"
+             BackgroundColor="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header with back arrow, title, and home icon -->
+        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10" Grid.Row="0" BackgroundColor="LightGray">
+            <Button Text="←" FontSize="20" Clicked="OnBackButtonClicked" VerticalOptions="Center"/>
+            <Label Text="Status" FontSize="24" VerticalOptions="Center"/>
+            <ImageButton Source="home.png" WidthRequest="24" HeightRequest="24" Clicked="OnHomeButtonClicked" VerticalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Status List -->
+        <ListView x:Name="StatusListView" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding SectionName}" FontSize="20" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding StartTime}" FontSize="20" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Duration}" FontSize="20" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Days}" FontSize="20" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
