@@ -57,7 +57,7 @@ namespace IMProWater
                 await Database.DatabaseInstance.InsertAsync(user);
 
                 await DisplayAlert("Sukces", "Rejestracja zakoñczona pomyœlnie!", "OK");
-                await Navigation.PushAsync(new MainPage());
+                await Navigation.PushAsync(new LoginPage());
             }
         }
 
@@ -99,6 +99,12 @@ namespace IMProWater
             RepeatPasswordEntry.IsPassword = !_isRepeatPasswordVisible;
 
             ((ImageButton)sender).Source = _isRepeatPasswordVisible ? "eye_off.png" : "eye.png";
+        }
+
+        // Funkcja obs³uguj¹ca przejœcie do strony logowania, jeœli u¿ytkownik ju¿ ma konto
+        private async void OnLoginTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

@@ -10,7 +10,7 @@ namespace IMProWater
 
         public LoginPage()
         {
-            InitializeComponent(); // Musi byæ wywo³ane, aby zainicjowaæ elementy XAML
+            InitializeComponent();
         }
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)
@@ -33,23 +33,19 @@ namespace IMProWater
             }
         }
 
-        private async void OnBackButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
-        }
-
-        private void OnExitButtonClicked(object sender, EventArgs e)
-        {
-            Application.Current.Quit();
-        }
-
         // Funkcja obs³uguj¹ca widocznoœæ has³a
         private void OnTogglePasswordVisibilityClicked(object sender, EventArgs e)
         {
             _isPasswordVisible = !_isPasswordVisible;
             PasswordEntry.IsPassword = !_isPasswordVisible;
-
             ((ImageButton)sender).Source = _isPasswordVisible ? "eye_off.png" : "eye.png";
+        }
+
+        // Funkcja obs³uguj¹ca nawigacjê do strony rejestracji
+        private async void OnRegisterTapped(object sender, EventArgs e)
+        {
+            // Przejœcie do strony rejestracji (zamieñ "RegisterPage" na rzeczywist¹ stronê rejestracji)
+            await Navigation.PushAsync(new RegisterPage());
         }
     }
 }

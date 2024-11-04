@@ -1,74 +1,84 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IMProWater.RegisterPage"
-             BackgroundColor="White">
+             BackgroundImageSource="tlo1.jpg">
 
-    <Grid>
-        <!-- Ustawienie tła z przesunięciem -->
-        <Image Source="tlo1.jpg" Aspect="AspectFit" VerticalOptions="Start" Margin="0,-100,0,0" />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Spacing="20">
 
-        <!-- Półprzezroczysta ramka -->
+        <!-- Główna ramka z formularzem rejestracji -->
         <Frame BackgroundColor="WhiteSmoke" Opacity="0.8" CornerRadius="25" Padding="20" HasShadow="False" BorderColor="Transparent"
-       HorizontalOptions="Center" VerticalOptions="CenterAndExpand" WidthRequest="450" HeightRequest="550">
+               HorizontalOptions="Center" WidthRequest="500" HeightRequest="550">
 
-
-            <!-- Kontener dla pól rejestracji -->
+            <!-- Układ wewnątrz głównej ramki -->
             <StackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+
+                <!-- Nagłówek powitalny -->
+                <Label Text="Załóż konto" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" />
+
                 <!-- Pole na Email -->
-                <Frame BackgroundColor="White" CornerRadius="25" Padding="20" Margin="0, 0, 0, 0">
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" HasShadow="False">
                     <Entry x:Name="EmailEntry" Placeholder="email" Keyboard="Email"
                            TextColor="Black" PlaceholderColor="Grey" BackgroundColor="Transparent"
-                           WidthRequest="350" HorizontalOptions="Center"/>
+                           WidthRequest="350" HeightRequest="60" HorizontalOptions="Center"/>
                 </Frame>
 
-                <!-- Pole na Hasło -->
-                <Frame BackgroundColor="White" CornerRadius="25" Padding="20" Margin="0, 0, 0, 0">
+                <!-- Pole na Hasło z ikoną oka -->
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" HasShadow="False">
                     <Grid>
                         <Entry x:Name="PasswordEntry" Placeholder="hasło" IsPassword="True"
                                TextColor="Black" PlaceholderColor="Grey" BackgroundColor="Transparent"
-                               WidthRequest="350" HorizontalOptions="Center"/>
-                        <!-- Przycisk z ikoną oka -->
+                               WidthRequest="350" HeightRequest="60" HorizontalOptions="Center"/>
                         <ImageButton Source="eye.png" WidthRequest="30" HeightRequest="30" Aspect="AspectFit"
                                      HorizontalOptions="End" VerticalOptions="Center" Margin="5,0"
                                      Clicked="OnTogglePasswordVisibilityClicked"/>
                     </Grid>
                 </Frame>
 
-                <!-- Pole na powtórzenie hasła -->
-                <Frame BackgroundColor="White" CornerRadius="25" Padding="20" Margin="0, 0, 0, 20">
+                <!-- Pole na Powtórz Hasło z ikoną oka -->
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" HasShadow="False">
                     <Grid>
                         <Entry x:Name="RepeatPasswordEntry" Placeholder="powtórz hasło" IsPassword="True"
                                TextColor="Black" PlaceholderColor="Grey" BackgroundColor="Transparent"
-                               WidthRequest="350" HorizontalOptions="Center"/>
-                        <!-- Przycisk z ikoną oka dla powtórzenia hasła -->
+                               WidthRequest="350" HeightRequest="60" HorizontalOptions="Center"/>
                         <ImageButton Source="eye.png" WidthRequest="30" HeightRequest="30" Aspect="AspectFit"
                                      HorizontalOptions="End" VerticalOptions="Center" Margin="5,0"
                                      Clicked="OnToggleRepeatPasswordVisibilityClicked"/>
                     </Grid>
                 </Frame>
 
-                <!-- Guziki Powrót i Zarejestruj -->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
-                    <Button Text="Powrót"
-                            BackgroundColor="#5A7F66" TextColor="White" CornerRadius="30"
-                            WidthRequest="150" HeightRequest="60" Clicked="OnBackButtonClicked" />
+                <!-- Przycisk Zarejestruj -->
+                <Button Text="zarejestruj"
+                        BackgroundColor="#0096D6" TextColor="White"
+                        CornerRadius="30" WidthRequest="200" HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Clicked="OnRegisterButtonClicked" />
 
-                    <Button Text="Zarejestruj"
-                            BackgroundColor="#5A7F66" TextColor="White" CornerRadius="30"
-                            WidthRequest="150" HeightRequest="60" Clicked="OnRegisterButtonClicked" />
-                </StackLayout>
-                <!-- Przycisk Wyjście umieszczony na dole ramki -->
-                <!-- Przycisk Wyjście umieszczony na dole ramki -->
-                <Button Text="Wyjście"
-        BackgroundColor="#5A7F66" TextColor="White"
-        CornerRadius="30" WidthRequest="150" HeightRequest="60"
-        HorizontalOptions="Center"
-        VerticalOptions="End"
-        Clicked="OnExitButtonClicked"/>
             </StackLayout>
         </Frame>
 
-  
-    </Grid>
+        <!-- Link do powrotu na stronę logowania lub wyjścia -->
+        <Frame BackgroundColor="WhiteSmoke" Opacity="0.8" CornerRadius="25" Padding="10" HasShadow="False" BorderColor="Transparent"
+               HorizontalOptions="Center" WidthRequest="500" HeightRequest="80">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
+                <!-- Tekst z wyróżnieniem "kliknij tutaj" -->
+                <Label HorizontalOptions="Center" TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Jeśli masz już konto, " TextColor="Black" />
+                            <Span Text="kliknij tutaj"
+                                  FontAttributes="Bold"
+                                  TextDecorations="Underline"
+                                  TextColor="Black">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLoginTapped" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=", aby się zalogować" TextColor="Black" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
 </ContentPage>
