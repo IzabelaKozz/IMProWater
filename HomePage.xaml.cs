@@ -13,7 +13,7 @@ namespace IMProWater
         private async void OnSekcjeTapped(object sender, EventArgs e)
         {
             // Przekazujemy domyœlny numer sekcji, np. "1"
-            await Navigation.PushAsync(new SectionsPage("1"));
+            await Navigation.PushAsync(new SectionsPage());
         }
 
         private async void OnUstawieniaTapped(object sender, EventArgs e)

@@ -1,34 +1,89 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IMProWater.SectionDetailPage"
-             Title="{Binding SectionTitle}"
-             BackgroundColor="White">
+             BackgroundImageSource="tlo1.jpg"
+             Title="Szczegóły Sekcji">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Frame BackgroundColor="#B3FFFFFF"
+           BorderColor="#B3FFFFFF"
+           CornerRadius="20"
+           Padding="20"
+           Margin="20"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           WidthRequest="500"
+           HeightRequest="550">
 
-        <!-- Header with back arrow, title, and home icon -->
-        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10" Grid.Row="0" BackgroundColor="LightGray">
-            <Button Text="←" FontSize="20" Clicked="OnBackButtonClicked" VerticalOptions="Center"/>
-            <Label Text="{Binding SectionTitle}" FontSize="24" VerticalOptions="Center"/>
-            <ImageButton Source="home.png" WidthRequest="24" HeightRequest="24" Clicked="OnHomeButtonClicked" VerticalOptions="Center"/>
+        <StackLayout Spacing="15" VerticalOptions="Center" HorizontalOptions="Center">
+
+            <!-- Pole tekstowe dla nazwy sekcji z ramką -->
+            <Frame BackgroundColor="White" CornerRadius="25" Padding="5" HasShadow="False">
+                <Entry x:Name="SectionNameEntry" 
+                       Placeholder="Nazwa sekcji"
+                       TextColor="Black"
+                       PlaceholderColor="Grey"
+                       BackgroundColor="Transparent"
+                       WidthRequest="350" HeightRequest="60" HorizontalOptions="Center"/>
+            </Frame>
+
+            <!-- Przełączniki dla dni tygodnia z równymi przerwami -->
+            <Grid ColumnSpacing="10" HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="pnButton" Text="pn" BackgroundColor="White" TextColor="Black" CornerRadius="10" Clicked="OnDaySelected" Grid.Column="0"/>
+                <Button x:Name="wtButton" Text="wt" BackgroundColor="White" TextColor="Black" CornerRadius="10" Clicked="OnDaySelected" Grid.Column="1"/>
+                <Button x:Name="śrButton" Text="śr" BackgroundColor="White" TextColor="Black" CornerRadius="10" Clicked="OnDaySelected" Grid.Column="2"/>
+                <Button x:Name="czwButton" Text="czw" BackgroundColor="White" TextColor="Black" CornerRadius="10" Clicked="OnDaySelected" Grid.Column="3"/>
+                <Button x:Name="ptButton" Text="pt" BackgroundColor="White" TextColor="Black" CornerRadius="10" Clicked="OnDaySelected" Grid.Column="4"/>
+                <Button x:Name="soButton" Text="so" BackgroundColor="White" TextColor="Black" CornerRadius="10" Clicked="OnDaySelected" Grid.Column="5"/>
+                <Button x:Name="ndButton" Text="nd" BackgroundColor="White" TextColor="Black" CornerRadius="10" Clicked="OnDaySelected" Grid.Column="6"/>
+            </Grid>
+
+            <!-- Pole tekstowe dla godziny startu z ramką -->
+            <Frame BackgroundColor="White" CornerRadius="25" Padding="5" HasShadow="False">
+                <Entry x:Name="StartTimeEntry" 
+                       Placeholder="Godzina startu (HH:MM)"
+                       TextColor="Black"
+                       PlaceholderColor="Grey"
+                       BackgroundColor="Transparent"
+                       WidthRequest="350" HeightRequest="60" HorizontalOptions="Center"/>
+            </Frame>
+
+            <!-- Pole tekstowe dla czasu trwania z ramką -->
+            <Frame BackgroundColor="White" CornerRadius="25" Padding="5" HasShadow="False">
+                <Entry x:Name="DurationEntry" 
+                       Placeholder="Czas trwania (minuty)"
+                       TextColor="Black"
+                       PlaceholderColor="Grey"
+                       BackgroundColor="Transparent"
+                       WidthRequest="350" HeightRequest="60" HorizontalOptions="Center"/>
+            </Frame>
+
+            <!-- Przycisk zapisu -->
+            <Button Text="Zapisz" 
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#008080" 
+                    TextColor="White"
+                    WidthRequest="200" 
+                    CornerRadius="15" 
+                    Margin="0,10,0,10"/>
+
+            <!-- Przycisk edycji -->
+            <Button Text="Edytuj" 
+                    Clicked="OnEditClicked"
+                    BackgroundColor="Gray" 
+                    TextColor="White"
+                    WidthRequest="200" 
+                    CornerRadius="15" 
+                    Margin="0,10,0,10"/>
         </StackLayout>
-
-        <Grid Grid.Row="1" Padding="20" ColumnSpacing="10" RowSpacing="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button Text="Start" Grid.Row="0" Grid.Column="0" Clicked="OnStartButtonClicked"/>
-            <Button Text="Nazwa" Grid.Row="0" Grid.Column="1" Clicked="OnNameButtonClicked"/>
-        </Grid>
-    </Grid>
+    </Frame>
 </ContentPage>
