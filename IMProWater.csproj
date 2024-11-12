@@ -63,6 +63,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Platforms\Android\Resources\raw\google-services.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\bee.gif" />
 	  <None Remove="Resources\Images\eye.png" />
 	  <None Remove="Resources\Images\eye_off.png" />
@@ -75,10 +79,12 @@
 
 	<ItemGroup>
 		<PackageReference Include="FFImageLoading.Maui" Version="1.2.7" />
+		<PackageReference Include="Firebase.Database" Version="1.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Plugin.FirebaseAuth" Version="4.1.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 	</ItemGroup>
 
@@ -126,5 +132,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+	<ItemGroup>
+		<GoogleServicesJson Include="Platforms/Android/Resources/raw/google-services.json" />
+	</ItemGroup>
+
 
 </Project>
